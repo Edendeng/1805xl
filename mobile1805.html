@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端打包测试</title>
+</head>
+<style>
+    .box{
+			width: 300px;
+			height: 300px;
+			background: #ccc;
+			position: absolute;
+			opacity: 0.5;
+		}
+</style>
+<body>
+    <!-- 点穿事件 -->
+    <div id="box" class="box">
+        <h3>hello World</h3>
+         <h1 id="h1"></h1>
+    </div>
+    <a href="http://wwww.baidu.com">百度一下</a>
+
+    <script>
+    //  var oDiv = document.querySelectorAll("#box");
+    //  oDiv.addEventListener("touchstart",function(ev){
+    //      ev.preventDefault();//阻止移动端的手机默认事假 preventDefault()
+    //      this.innerHtml = ev.targetTouches.length;
+    //  })   
+
+        var oDiv = document.querySelector("#box");
+        var h1 = document.getElementById("h1")
+        console.log(h1)
+	   oDiv.addEventListener("touchstart",function(ev){
+	   	   ev.preventDefault();
+	   	   h1.innerHTML=ev.targetTouches.length;
+	   	/*   this.style.display='none'; */ 
+          oDiv.addEventListener("touchmove",function(ev){
+            h1.innerHTML=ev.targetTouches.length;
+          })
+          oDiv.addEventListener("touchend",function(ev){
+          	 console.log(ev.changedTouches.length);
+
+          })
+       
+	   })
+
+    </script>
+</body>
+</html>
